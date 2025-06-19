@@ -25,6 +25,7 @@ title_label.pack()
 entry_string=tk.StringVar()
 entry= ttk.Entry(window,font=task_font, textvariable=entry_string, width=40,)
 entry.pack(pady=(0,10))
+entry_string.set("")
 
 #list box to display tasks
 list_frame= tk.Frame(window)
@@ -56,6 +57,7 @@ def delete_task():
         index=selected[0]
         task_listbox.delete(index)
         tasks.pop(index)
+        entry_string.set("")
 
 #mark task done function
 def mark_task_done():
@@ -95,6 +97,7 @@ def clear_all_tasks():
     if confirm:
         task_listbox.delete(0, tk.END)
         tasks.clear()
+        entry_string.set("")
 
 #BUTTONS
 button_frame=tk.Frame(window)
@@ -121,6 +124,8 @@ clear_all_button=tk.Button(button_frame, text="Clear All", command= clear_all_ta
 clear_all_button.pack(side=tk.LEFT, padx=12)
     
 window.mainloop()
+
+
 
 
 
